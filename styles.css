@@ -1,0 +1,59 @@
+:root  {
+    /*--main-bg-color: #D84282;*/
+    --burger-menu-width: 60px;
+    --burger-menu-height: 10px;
+}
+
+#menu {
+    background-color: #D84282;
+    position: relative;
+    transition: all .5s ease-in-out;
+    /*background-color: var(--main-bg-color);*/
+    width: var(--burger-menu-width);
+    height: var(--burger-menu-height);
+}
+
+#menu::before,
+#menu::after {
+    background-color: #D84282;
+    content: "";
+    width: var(--burger-menu-width);
+    height: var(--burger-menu-height);
+    position: absolute;
+    transition: all .5s ease-in-out;
+}
+
+#menu::before {
+    left: 0;
+    top: -20px;
+}
+
+#menu::after {
+    left: 0;
+    top: 20px;
+}
+
+.container {
+    margin: 100px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid grey;
+    width: var(--burger-menu-width);
+    height: calc(var(--burger-menu-height) * 5);
+}
+
+.container:hover #menu {
+    background-color: transparent;
+}
+
+.container:hover #menu::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.container:hover #menu::after {
+    top: 0;
+    transform: rotate(-45deg);
+}
